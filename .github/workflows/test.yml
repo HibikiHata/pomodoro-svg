@@ -1,0 +1,20 @@
+name: test
+
+# 実行時は標準ライブラリだけで動くので、CIに要るのは pytest ひとつ。
+# fontTools はフォントのサブセットを作るときにしか使わない。
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: python -m pytest -q
+        env:
+          PYTHONPATH: src

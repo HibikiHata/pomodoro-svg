@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+
+# 確認用の生成物。1コマンドで作り直せるので追跡しない
+#   PYTHONPATH=src python3 -m pomodoro._generate.gen_preview
+preview/

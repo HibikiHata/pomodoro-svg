@@ -1,0 +1,75 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <title>Minimalist Pomodoro Timer</title>
+  <style>
+    /* =========================================
+       基本色設定（時計と同じ配色）
+       ========================================= */
+    /* デフォルト（ダークモード用） */
+    .main-stroke { stroke: #c9d1d9; }
+    .main-fill   { fill: #c9d1d9; }
+    .bg-stroke   { stroke: #c9d1d9; opacity: 0.2; } /* 背景は薄く */
+
+    /* ライトモード用設定 */
+    @media (prefers-color-scheme: light) {
+      .main-stroke { stroke: #24292f; }
+      .main-fill   { fill: #24292f; }
+      .bg-stroke   { stroke: #24292f; opacity: 0.2; }
+    }
+
+    /* =========================================
+       タイマーアニメーション設定
+       duration: 1500s = 25分
+       ========================================= */
+    .timer-circle {
+      fill: none;
+      stroke-width: 8; /* 時計の枠より少し太くして存在感を出す */
+      stroke-linecap: round;
+      /* 円周の長さ計算: 2 * pi * r (r=90) ≈ 565.48 → ここで回転の向き変更可能 */
+      stroke-dasharray: 565.48;
+      stroke-dashoffset: 0;
+      /* 25分かけて破線オフセットを最大にして線を消す */
+      animation: countdown 1500s linear forwards;
+      transform: rotate(-90deg); /* 12時の位置から開始 */
+      transform-origin: 100px 100px;
+    }
+
+    .timer-bg {
+      fill: none;
+      stroke-width: 8;
+    }
+
+    .text-status {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; /* システム系等幅フォント */
+      font-weight: bold;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    /* アニメーション定義：色が変化せず、線が短くなっていくだけ */
+    @keyframes countdown {
+      from { stroke-dashoffset: 0; }
+      to   { stroke-dashoffset: 565.48; }
+    }
+
+    /* 完了時の文字表示アニメーション */
+    .finish-text {
+      opacity: 0;
+      /* 1500秒後にパッと表示 */
+      animation: showText 0.1s linear 1500s forwards;
+      font-size: 28px;
+    }
+
+    @keyframes showText {
+      to { opacity: 1; }
+    }
+  </style>
+
+  <circle cx="100" cy="100" r="90" class="bg-stroke timer-bg" />
+
+  <circle cx="100" cy="100" r="90" class="main-stroke timer-circle" />
+
+  <text x="100" y="90" class="main-fill text-status" font-size="22">FOCUS</text>
+  <text x="100" y="120" class="main-fill text-status" font-size="14">25 MIN</text>
+
+  <text x="100" y="100" class="main-fill text-status finish-text">FINISHED</text>
+</svg>
