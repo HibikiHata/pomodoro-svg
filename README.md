@@ -28,16 +28,19 @@ Paste this into your README, replacing `ring` with whichever design you want:
 ```html
 <picture>
   <source media="(prefers-color-scheme: dark)"
-          srcset="https://raw.githubusercontent.com/HibikiHata/pomodoro-svg/main/dist/pomodoro-ring-25-5-dark.svg">
+          srcset="https://raw.githubusercontent.com/HibikiHata/pomodoro-svg/v1/dist/pomodoro-ring-25-5-dark.svg">
   <img alt="Pomodoro timer" width="200"
-       src="https://raw.githubusercontent.com/HibikiHata/pomodoro-svg/main/dist/pomodoro-ring-25-5-light.svg">
+       src="https://raw.githubusercontent.com/HibikiHata/pomodoro-svg/v1/dist/pomodoro-ring-25-5-light.svg">
 </picture>
 ```
+
+`v1` follows the latest v1.x release, so bug fixes reach you but a redesign does not.
+Pin `v1.0.0` instead if you want the bytes frozen, or use `main` to track every commit.
 
 Wrap it in a link to the same URL and clicking it opens the timer on its own, from zero:
 
 ```html
-<a href="https://raw.githubusercontent.com/HibikiHata/pomodoro-svg/main/dist/pomodoro-ring-25-5-light.svg">
+<a href="https://raw.githubusercontent.com/HibikiHata/pomodoro-svg/v1/dist/pomodoro-ring-25-5-light.svg">
   <img alt="Pomodoro timer" width="200" src="…same…">
 </a>
 ```
