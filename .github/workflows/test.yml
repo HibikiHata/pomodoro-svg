@@ -18,3 +18,13 @@ jobs:
       - run: python -m pytest -q
         env:
           PYTHONPATH: src
+
+      # dist/ はコミットされた生成物。コードを直して作り直し忘れると、配布物と
+      # 実装が黙ってずれる——貼っている人には古い絵が出続ける。出力は決定的
+      # （同じ入力なら同じバイト列）なので、作り直して差分が出たら落とせる。
+      - name: dist が実装と一致しているか
+        run: |
+          python -m pomodoro._generate.gen_variants --out /tmp/dist
+          diff -r dist /tmp/dist
+        env:
+          PYTHONPATH: src
