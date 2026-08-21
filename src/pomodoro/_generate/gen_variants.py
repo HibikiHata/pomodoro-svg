@@ -2,7 +2,7 @@
 
     PYTHONPATH=src python3 -m pomodoro._generate.gen_variants --out dist
 
-**この一覧が公開物の全部**。Actionを出さないので（設計文書 D4）、利用者が
+**この一覧が公開物の全部**。Actionを出さないので、利用者が
 自分で生成する経路は「cloneしてCLI」しかない。ここに無い組み合わせは、
 Pythonを持っている人だけが作れる——だから何を入れるかは重い判断になる。
 
@@ -21,7 +21,7 @@ from pathlib import Path
 from pomodoro.config import DESIGNS, Options
 from pomodoro.render import variants
 
-#: (作業, 短休憩, 長休憩)。根拠は設計文書 §5
+#: (作業, 短休憩, 長休憩)。根拠は `docs/behaviour.md`
 SCHEDULES: tuple[tuple[int, int, int], ...] = (
     (15, 5, 15),    # 注意の持続が難しいとき。ADHD適応の臨床試験が採った長さ
     (25, 5, 15),    # 正典。Cirillo の原典

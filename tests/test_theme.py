@@ -3,9 +3,9 @@
 配色は「好み」に見えて読めるかどうかを決めている。数字が読めないタイマーは
 タイマーではないので、コントラスト比を要件として固定する。
 
-SVG内の `@media (prefers-color-scheme)` を使わず light/dark を2枚出しにする理由は
-設計文書 D1 周辺と同じ——あれはGitHubのテーマ切り替えではなくOSの設定に解決され、
-Safari では効かない。だから配色は「1テーマ1ファイル」の単位で持つ。
+SVG内の `@media (prefers-color-scheme)` を使わず light/dark を2枚出しにするのは、
+あれがGitHubのテーマ切り替えではなくOSの設定に解決され、Safari では効かないため。
+だから配色は「1テーマ1ファイル」の単位で持つ。
 """
 
 from __future__ import annotations

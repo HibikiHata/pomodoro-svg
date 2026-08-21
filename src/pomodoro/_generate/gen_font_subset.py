@@ -7,7 +7,7 @@
 Noto Sans JP の可変フォントを https://fonts.google.com/noto/specimen/Noto+Sans+JP
 から取得し、そのディレクトリを --source-dir に渡すか、環境変数
 `POMODORO_FONT_SOURCE_DIR` に設定する。**取得元をコード側に固定しない**のは、
-このパッケージが独立リポジトリへ切り出される前提だから（設計文書 D6）。
+外部サイトのURL構造に依存した瞬間からビルドがそのサイトの都合で壊れるから。
 
 配布物には入らない。fontTools を使うのはここだけで、実行時は標準ライブラリの
 みで動く。

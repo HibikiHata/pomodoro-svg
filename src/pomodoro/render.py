@@ -225,7 +225,7 @@ def _durations(theme: Theme, options: Options) -> list[tuple[str, tuple[str, ...
 
     語をまとめた休憩と違い、**長さは分けて出す**。5分と15分は別の文字列なので
     同じ `<text>` にできない——ここが `ring` に数字が無くても休憩の長さが読める
-    理由になっている（設計文書 D8）。
+    理由になっている。
     """
     phases = cycle(options.work, options.rest, options.sets, options.long_rest)
     present = {phase.kind for phase in phases}
